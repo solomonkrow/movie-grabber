@@ -18,12 +18,13 @@
           <a href="index.html" class="is-pulled-right" style="">Home</a>
         </div>
         <div class="column m-1 mr-5">
-          <input
+          <input id="input"
             class="input is-rounded is is-pulled-left"
             style="width: 60%;"
             type="text"
             placeholder="Search for a Movie"
           />
+          <button id="submit" type="submit">Submit</button>
         </div>
       </nav>
     </header>
@@ -32,7 +33,7 @@
       <aside class="column m-1 is-one-quarter ml-5">
         <button>Watchlist</button>
       </aside>
-      <section class="column m-1 mr-5">
+      <section id="movie-result" class="column m-1 mr-5">
         <h2>Movie Info</h2>
         <ul>
             <li>Poster</li>
