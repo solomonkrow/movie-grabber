@@ -10,26 +10,26 @@ var tmdKey = "91ce5d26720f6e04f0cc120d15c7cd71"
 
 var button = document.getElementById("search-button")
 var search = document.getElementById("search-input")
-
-// const options = {
-//     method: 'GET',
-//     headers: {
-//         accept: 'application/json',
-//         Authorization: 'Bearer 91ce5d26720f6e04f0cc120d15c7cd71'
-//     }
-// };
+var displayPoster = document.getElementById("display-poster")
+var displayTitle = document.getElementById("display-title")
+var displayDescription = document.getElementById("display-description")
 
 
 
 function generateMovieCards(data) {
-     for (let i = 0; i < 20; i++){          
+     for (let i = 0; i < 10; i++){          
         movieTitle = data[i].title
         movieInfo = data[i].overview
         moviePoster = data[i].poster_path
-        var newSection = document.createElement("section")
-        document.appendChild
+        var card = document.createElement("div")
         var newTitle = document.createElement("h4")
         newTitle.textContent = movieTitle
+        card.append(newTitle)
+        var newDescription = document.createElement("p")
+        newDescription.textContent = movieInfo
+        card.append(newDescription)
+        var cardContainer = document.getElementById("movie-info")
+        cardContainer.append(card)
 
         console.log(movieTitle);
     }
@@ -44,22 +44,7 @@ function fetchSpecificMovie() {
             console.log(data);
                 generateMovieCards(data.results)
         })
-        .catch(err => console.error(err));
-    
-
 }
 
 
 var button = document.addEventListener("click", fetchSpecificMovie)
-
-
-// fetch('https://api.github.com/orgs/twitter/repos')
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log('Twitter Repositories: Names only \n----------');
-//      for (var i = 0; i < data.length; i++) {
-//       console.log(data[0].name);
-//      }
-//   });
