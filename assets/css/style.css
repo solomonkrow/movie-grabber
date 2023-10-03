@@ -1,0 +1,17 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header h1 {
+    background-color: aqua;
+}
+
+header a {
+    border: 1px dashed #000;
+}
+
+.column {
+    border: 1px dashed #000;
+} 
