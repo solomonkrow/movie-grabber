@@ -10,17 +10,17 @@
     />
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
-  <body>
+  <body class="has-background-dark">
     <header class="">
       <h1 class="has-text-centered is-uppercase p-3 mb-2">Movie Grabber</h1>
       <nav class="columns">
-        <div class="column m-1 ml-5 is-one-quarter">
+        <div class="column m-1 ml-5 is-one-fifth">
           <a href="index.html" class="is-pulled-right" style="">Home</a>
         </div>
         <div class="column m-1 mr-5">
           <input
             class="input is-rounded is is-pulled-left"
-            style="width: 60%;"
+            style="width: 60%"
             type="text"
             placeholder="Search for a Movie"
           />
@@ -29,26 +29,51 @@
     </header>
 
     <main class="columns mt-5">
-      <aside class="column m-1 is-one-quarter ml-5">
-        <button>Watchlist</button>
+      <aside class="column m-1 mr-5 is-one-fifth ml-5">
+        <a href="watchlist.html" id="watchlist" class="p-4 m-4">Watchlist</a> <hr>
+        <ul class="pl-1 m-4">
+          <li><a href="">Godzilla</a></li>
+          <li><a href="">Avengers</a></li>
+          <li><a href="">Alien</a></li>
+        </ul>
       </aside>
       <section class="column m-1 mr-5">
-        <h2>Movie Info</h2>
-        <ul>
-            <li>Poster</li>
-            <li>Title</li>
-            <li>Description</li>
-            <li>Genres
-                <ol>
-                    <li>Action</li>
-                    <li>Comedy</li>
-                    <li>Horror/Thriller</li>
-                    <li>Romance</li>
-                    <li>Sci-Fi</li>
-                    <li>Animated</li>
-                    <li>Drama</li>
-                </ol>
-            </li>
+        
+        <ul class="columns is-pulled-right" id="movie-info">
+          <div class="column is-one-quarter ">
+            <img
+                id="poster"
+              class=""
+              src="/assets/images/512px-Kill_Bill_Volume_1.webp"
+              alt=""
+            />
+          </div>
+          <div class="column p-5">
+            <h3>Title : <span id="title">Kill Bill</span></h3> 
+            <button class="button is-pulled-right add">+</button> <hr>
+            <li>
+              Description :
+              <p id="overview">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati nam perspiciatis quasi recusandae pariatur laboriosam
+                expedita quae minus, fuga ab eius in eos totam laudantium velit
+                dignissimos deleniti tempore quisquam?
+              </p>
+            </li> <br>
+            <li>
+              Genres :
+              <ul id="genres">
+                <li>Action,</li>
+                <li>Comedy,</li>
+                <li>Horror/Thriller,</li>
+                <li>Romance,</li>
+                <li>Sci-Fi,</li>
+                <li>Animated,</li>
+                <li>Drama</li>
+              </ul>
+            </li><br>
+            
+          </div>
         </ul>
       </section>
     </main>
