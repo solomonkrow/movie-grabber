@@ -2,16 +2,38 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    height: 100vh;
 }
 
+.home-btn{
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
 header h1 {
-    background-color: aqua;
+    background-color: gray;
+    font-weight: 900;
+    font-size: x-large;
+    font-style: italic;
+    color: gold;
 }
 
-header a {
-    border: 1px dashed #000;
+#movie-info {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
 }
 
-.column {
-    border: 1px dashed #000;
-} 
+aside {
+    background-color: white;
+    border-radius: 5px;
+}
+
+#genres {
+    list-style-type: none;
+    display: flex;
+}
+
+.add {
+    display: flex;
+}
