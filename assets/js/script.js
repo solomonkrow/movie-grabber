@@ -28,15 +28,16 @@ function findMovie(searchInput) {
     .then(function (data) {
       console.log(data)
       console.log(data.Title, data.Plot, data.Genre, data.Poster)   
-
+        //need to make this a loop
       var card = document.createElement("div")
       var title = document.createElement("h3")
       var poster = document.createElement("img")
       var description = document.createElement("p")
       var genres = document.createElement("p")
 
+      card.setAttribute("class", "column is-full")
       title.textContent = data.Title
-      poster.setAttribute("href", data.Poster)
+      poster.setAttribute("src", data.Poster)
       description.textContent = data.Plot
       genres.textContent = data.Genre
       
@@ -45,6 +46,6 @@ function findMovie(searchInput) {
         console.log(description)
         console.log(genres);
 
-    card.appendChild(poster, title, description, genres)
+        card.append(poster, title, description, genres)
         movieInfo.appendChild(card)
     } ) }
