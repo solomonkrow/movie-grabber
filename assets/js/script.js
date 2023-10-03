@@ -8,9 +8,9 @@ var omdbKey = "dcd25d25"
 // Example data request - https://api.themoviedb.org/3/search/movie?query={search}&api_key={key}
 var tmdKey = "91ce5d26720f6e04f0cc120d15c7cd71"
 
-var searchBtn = document.getElementById("submit")
+var searchBtn = document.querySelector("button")
 var inputBox = document.getElementById("input")
-var movieResult = document.getElementById("movie-result")
+var movieInfo = document.getElementById("movie-info")
 
 searchBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -29,7 +29,7 @@ function findMovie(searchInput) {
       console.log(data)
       console.log(data.Title, data.Plot, data.Genre, data.Poster)   
 
-      var card = document.createElement("section")
+      var card = document.createElement("div")
       var title = document.createElement("h3")
       var poster = document.createElement("img")
       var description = document.createElement("p")
@@ -40,7 +40,11 @@ function findMovie(searchInput) {
       description.textContent = data.Plot
       genres.textContent = data.Genre
       
-      card.appendChild(poster, title, description, genres)
-      document.body.appendChild
+      console.log(title)
+        console.log(poster)
+        console.log(description)
+        console.log(genres);
 
+    card.appendChild(poster, title, description, genres)
+        movieInfo.appendChild(card)
     } ) }
