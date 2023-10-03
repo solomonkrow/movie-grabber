@@ -37,3 +37,15 @@ aside {
 .add {
     display: flex;
 }
+
+#watchlist-header {
+    font-size: 40px;
+    font-weight: 900;
+    font-style: italic;
+    color: gold;
+    
+}
+
+#watchlist-line {
+    color: gold;
+}
