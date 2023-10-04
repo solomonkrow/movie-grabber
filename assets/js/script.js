@@ -15,20 +15,20 @@ var displayPoster = document.getElementById("display-poster")
 var displayTitle = document.getElementById("display-title")
 var displayDescription = document.getElementById("display-description")
 
-// var createWatchlistInput = document.getElementById("create-watchlist-input")
-// var createWatchlistButton = document.getElementById("create-watchlist-button")
+var createWatchlistInput = document.getElementById("create-watchlist-input")
+var createWatchlistButton = document.getElementById("create-watchlist-button")
 
-// createWatchlistButton.addEventListener("click", addWatchlist)
+createWatchlistButton.addEventListener("click", addWatchlist)
 
-// function addWatchlist() {
-// localStorage.setItem("watchlist", JSON.stringify(createWatchlistInput))
-// }
+function addWatchlist() {
+localStorage.setItem("watchlist", JSON.stringify(createWatchlistInput.value))
+}
 
-function generateMovieCards(data) {
+function generateMovieCards(moviedata) {
      for (let i = 0; i < 10; i++){          
-        movieTitle = data[i].title
-        movieInfo = data[i].overview
-        moviePoster = data[i].poster_path
+        movieTitle = moviedata[i].title
+        movieInfo = moviedata[i].overview
+        moviePoster = moviedata[i].poster_path
         var card = document.createElement("li")
         var newTitle = document.createElement("h4")
         newTitle.textContent = movieTitle
@@ -55,9 +55,9 @@ function fetchSpecificMovie() {
     console.log(userInput);
     fetch('https://api.themoviedb.org/3/search/movie?query=' + userInput + '&api_key=91ce5d26720f6e04f0cc120d15c7cd71')
         .then(response => response.json())
-        .then(function (data) {
-            console.log(data);
-                generateMovieCards(data.results)
+        .then(function (moviedata) {
+            console.log(moviedata);
+                generateMovieCards(moviedata.results)
         })
 }
 
