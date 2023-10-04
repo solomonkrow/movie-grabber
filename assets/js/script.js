@@ -39,6 +39,7 @@ function generateMovieCards(data) {
 
 function fetchSpecificMovie() {
     var userInput = search.value.trim()
+    console.log(userInput);
     fetch('https://api.themoviedb.org/3/search/movie?query=' + userInput + '&api_key=91ce5d26720f6e04f0cc120d15c7cd71')
         .then(response => response.json())
         .then(function (data) {
@@ -51,12 +52,12 @@ function fetchSpecificMovie() {
 var button = document.addEventListener("click", fetchSpecificMovie)
 
 var searchBtn = document.querySelector("button")
-var inputBox = document.getElementById("input")
+// var inputBox = document.getElementById("input")
 var movieInfo = document.getElementById("movie-info")
 
 searchBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    var searchInput = inputBox.value.trim();
+    var searchInput = search.value.trim();
 
     findMovie(searchInput)
 })
