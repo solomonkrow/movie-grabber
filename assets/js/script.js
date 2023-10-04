@@ -15,14 +15,21 @@ var displayPoster = document.getElementById("display-poster")
 var displayTitle = document.getElementById("display-title")
 var displayDescription = document.getElementById("display-description")
 
+// var createWatchlistInput = document.getElementById("create-watchlist-input")
+// var createWatchlistButton = document.getElementById("create-watchlist-button")
 
+// createWatchlistButton.addEventListener("click", addWatchlist)
+
+// function addWatchlist() {
+// localStorage.setItem("watchlist", JSON.stringify(createWatchlistInput))
+// }
 
 function generateMovieCards(data) {
      for (let i = 0; i < 10; i++){          
         movieTitle = data[i].title
         movieInfo = data[i].overview
         moviePoster = data[i].poster_path
-        var card = document.createElement("div")
+        var card = document.createElement("li")
         var newTitle = document.createElement("h4")
         newTitle.textContent = movieTitle
         card.append(newTitle)
@@ -31,8 +38,14 @@ function generateMovieCards(data) {
         card.append(newDescription)
         var cardContainer = document.getElementById("movie-info")
         cardContainer.append(card)
-
-        console.log(movieTitle);
+        var dropdown = document.createElement("select")
+        card.append(dropdown)
+        var addButton = document.createElement("button")
+        addButton.textContent = "Add to selected watchlist"
+        addButton.setAttribute("class", "button is-rounded ml-2")
+        card.append(addButton)
+        //Can edit CSS of movie cards when they are created here. Replace "style" with "class" or "id", and padding with the classes or ids you want to add
+        card.setAttribute("style", "padding:15px")
     }
 }
 
