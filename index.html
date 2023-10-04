@@ -12,6 +12,8 @@
 
 
 <body class="has-background-dark">
+
+                   
     <header class="">
         <h1 class="has-text-centered is-uppercase p-3 mb-2">Movie Grabber</h1>
         <nav class="columns">
@@ -23,16 +25,20 @@
                     placeholder="Search for a Movie" />
                 <button class="button is-rounded ml-2">Search</button>
     </header>
-    <main class="columns mt-5">
-        <aside class="column m-1 mr-5 is-one-fifth ml-5">
-            <a href="watchlist.html" id="watchlist" class="p-4 m-4">Watchlist</a>
-            <hr>
-            <ul class="pl-1 m-4">
-                <li><a href="">Godzilla</a></li>
-                <li><a href="">Avengers</a></li>
-                <li><a href="">Alien</a></li>
-            </ul>
-        </aside>
+          
+   <main class="columns mt-5">
+      
+       <aside class="column m-1 mr-5 is-one-fifth ml-5" id="create-watchlist-input">
+      <input class="input is-rounded is is-pulled-left" id="create-watchlist-button">
+      <button class="button is-rounded ml-2">Create Watchlist</button>
+      <a href="watchlist.html" id="watchlist" class="p-4 m-4">Watchlist</a>
+      <hr>
+      <ul class="pl-1 m-4">
+        <li><a href="">Godzilla</a></li>
+        <li><a href="">Avengers</a></li>
+        <li><a href="">Alien</a></li>
+      </ul>
+    </aside>
         <section class="column m-1 mr-5">
 
             <ul class="columns is-flex-wrap-wrap" id="movie-info">
@@ -75,6 +81,8 @@
     </main>
     <footer></footer>
     <script src="./assets/js/script.js"></script>
+
+
 </body>
 
 </html>
