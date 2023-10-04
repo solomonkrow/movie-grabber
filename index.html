@@ -3,32 +3,34 @@
 
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Dissect</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Dissect</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-  
+
 
 <body class="has-background-dark">
+
+                   
     <header class="">
-      <h1 class="has-text-centered is-uppercase p-3 mb-2">Movie Grabber</h1>
-      <nav class="columns">
-        <div class="column mt-3 ml-5 is-one-fifth">
-          <a href="index.html" class="home-btn" style="">Home</a>
-        </div>
-        <div class="column m-1 mr-5">
-          <input id="input"
-            class="input is-rounded is-pulled-left"
-            style="width: 60%"
-            type="text"
-            placeholder="Search for a Movie"
-          />
-          <button class="button  is-rounded ml-2">Search</button>
-        </header>
-  <main class="columns mt-5">
-    <aside class="column m-1 mr-5 is-one-fifth ml-5">
+        <h1 class="has-text-centered is-uppercase p-3 mb-2">Movie Grabber</h1>
+        <nav class="columns">
+            <div class="column mt-3 ml-5 is-one-fifth">
+                <a href="index.html" class="home-btn" style="">Home</a>
+            </div>
+            <div class="column m-1 mr-5">
+                <input id="input" class="input is-rounded is is-pulled-left" style="width: 60%" type="text"
+                    placeholder="Search for a Movie" />
+                <button class="button is-rounded ml-2" >Search</button>
+    </header>
+          
+   <main class="columns mt-5">
+      
+       <aside class="column m-1 mr-5 is-one-fifth ml-5" id="create-watchlist-input">
+      <input class="input is-rounded is is-pulled-left" id="create-watchlist-button">
+      <button class="button is-rounded ml-2">Create Watchlist</button>
       <a href="watchlist.html" id="watchlist" class="p-4 m-4">Watchlist</a>
       <hr>
       <ul class="pl-1 m-4">
@@ -37,47 +39,50 @@
         <li><a href="">Alien</a></li>
       </ul>
     </aside>
-    <section class="column m-1 mr-5"> 
-        
-        <ul class="columns is-pulled-right is-flex-wrap-wrap" id="movie-info">
-          <div class="column is-full">
-           <!--  <img
-                id="poster"
-              class=""
-              src="/assets/images/512px-Kill_Bill_Volume_1.webp"
-              alt=""
-            />
-          </div>
-          <div class="column p-5">
-            <h3>Title : <span id="title">Kill Bill</span></h3> 
-            <button class="button is-pulled-right is-rounded add">+</button> <hr>
-            <li>
-              Description :
-              <p id="overview">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Obcaecati nam perspiciatis quasi recusandae pariatur laboriosam
-                expedita quae minus, fuga ab eius in eos totam laudantium velit
-                dignissimos deleniti tempore quisquam?
-              </p>
-            </li> <br>
-            <li>
-              Genres :
-              <ul id="genres">
-                <li>Action,</li>
-                <li>Comedy,</li>
-                <li>Horror/Thriller,</li>
-                <li>Romance,</li>
-                <li>Sci-Fi,</li>
-                <li>Animated,</li>
-                <li>Drama</li>
-              </ul>
-            </li> --><br>
-            
-          </div>
-        </ul>
-      </section>
+        <section class="column m-1 mr-5">
+
+            <ul class="columns is-flex-wrap-wrap" id="movie-info">
+                <div class="container">
+                    <div class="columns">
+
+                        <!-- <div class="column is-full">
+                            <div class="card is-horizontal">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="https://images7.alphacoders.com/303/303995.jpg"
+                                            alt="Placeholder image">
+                                    </figure>
+                                </div>
+
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <div class="media-content">
+                                            <p class="title is-4">Movie Title</p>
+                                            <p class="subtitle is-6">Director - Year</p>
+                                        </div>
+
+                                        <div class="content">
+                                            Movie description Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium inventore cupiditate cumque odio alias amet tenetur, ad aspernatur dolorem non aut fugit error earum? Iure dolore labore cupiditate facere est. 
+                                        </div>
+                                    </div>
+                                    <footer class="card-footer">
+                                        <div class="card-footer-item has-text-left">
+                                            <h1>Rating, Genres</h1>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+            </ul>
+        </section>
     </main>
     <footer></footer>
-<script src="/assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+
+</body>
 
 </html>
