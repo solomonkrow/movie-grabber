@@ -9,26 +9,54 @@ var omdbKey = "dcd25d25"
 var tmdKey = "91ce5d26720f6e04f0cc120d15c7cd71"
 
 
+
 var button = document.getElementById("search-button")
-var search = document.getElementById("search-input")
+var search = document.getElementById("input")
 var displayPoster = document.getElementById("display-poster")
 var displayTitle = document.getElementById("display-title")
 var displayDescription = document.getElementById("display-description")
 
 var createWatchlistInput = document.getElementById("create-watchlist-input")
 var createWatchlistButton = document.getElementById("create-watchlist-button")
+var userWatchlist = document.getElementById("user-watchlists")
+
+function loadLocalStorageWatchlist() {
+  var generatedWatchlist = JSON.parse(localStorage.getItem("watchlist"))
+for (let i = 0; i < generatedWatchlist.length; i++) {
+var newWatchlist = document.createElement("li")
+newWatchlist.textContent = generatedWatchlist[i]
+userWatchlist.append(newWatchlist)
+}
+}
+
+loadLocalStorageWatchlist()
 
 createWatchlistButton.addEventListener("click", addWatchlist)
 
 function addWatchlist() {
-localStorage.setItem("watchlist", JSON.stringify(createWatchlistInput.value))
+var watchlist = []
+var localStorageWatchlist = JSON.parse(localStorage.getItem("watchlist"))
+if(localStorageWatchlist?.length > 0) {
+  localStorageWatchlist.push(createWatchlistInput.value)
+  localStorage.setItem("watchlist", JSON.stringify(localStorageWatchlist))
+}
+else {
+  watchlist.push(createWatchlistInput.value)
+  localStorage.setItem("watchlist", JSON.stringify(watchlist))
+}
+var generatedWatchlist = JSON.parse(localStorage.getItem("watchlist"))
+// for (let i = 0; i < generatedWatchlist.length; i++) {
+var newWatchlist = document.createElement("li")
+newWatchlist.textContent = createWatchlistInput.value
+userWatchlist.append(newWatchlist)
+// }
 }
 
-function generateMovieCards(moviedata) {
+function generateMovieCards(data) {
      for (let i = 0; i < 10; i++){          
-        movieTitle = moviedata[i].title
-        movieInfo = moviedata[i].overview
-        moviePoster = moviedata[i].poster_path
+        movieTitle = data[i].title
+        movieInfo = data[i].overview
+        moviePoster = data[i].poster_path
         var card = document.createElement("li")
         var newTitle = document.createElement("h4")
         newTitle.textContent = movieTitle
@@ -55,9 +83,9 @@ function fetchSpecificMovie() {
     console.log(userInput);
     fetch('https://api.themoviedb.org/3/search/movie?query=' + userInput + '&api_key=91ce5d26720f6e04f0cc120d15c7cd71')
         .then(response => response.json())
-        .then(function (moviedata) {
-            console.log(moviedata);
-                generateMovieCards(moviedata.results)
+        .then(function (data) {
+            console.log(data);
+                generateMovieCards(data.results)
         })
 }
 
@@ -65,7 +93,7 @@ function fetchSpecificMovie() {
 var button = document.addEventListener("click", fetchSpecificMovie)
 
 var searchBtn = document.querySelector("button")
-// var inputBox = document.getElementById("input")
+var inputBox = document.getElementById("input")
 var movieInfo = document.getElementById("movie-info")
 
 searchBtn.addEventListener("click", function(event) {
