@@ -58,16 +58,25 @@ function generateMovieCards(data) {
         movieInfo = data[i].overview
         moviePoster = data[i].poster_path
         var card = document.createElement("li")
+
         var newTitle = document.createElement("h4")
         newTitle.textContent = movieTitle
         card.append(newTitle)
+
         var newDescription = document.createElement("p")
         newDescription.textContent = movieInfo
         card.append(newDescription)
+
         var cardContainer = document.getElementById("movie-info")
         cardContainer.append(card)
+
         var dropdown = document.createElement("select")
         card.append(dropdown)
+
+        movieImg = document.createElement("img")
+        movieImg.setAttribute("src","https://image.tmdb.org/t/p/original/"+ moviePoster)
+        card.append(movieImg)
+
         var addButton = document.createElement("button")
         addButton.textContent = "Add to selected watchlist"
         addButton.setAttribute("class", "button is-rounded ml-2")
@@ -79,7 +88,7 @@ function generateMovieCards(data) {
 
 
 function fetchSpecificMovie() {
-    var userInput = search.value.trim()
+    var userInput = inputBox.value.trim()
     console.log(userInput);
     fetch('https://api.themoviedb.org/3/search/movie?query=' + userInput + '&api_key=91ce5d26720f6e04f0cc120d15c7cd71')
         .then(response => response.json())
@@ -90,7 +99,7 @@ function fetchSpecificMovie() {
 }
 
 
-var button = document.addEventListener("click", fetchSpecificMovie)
+//var button = document.addEventListener("click", fetchSpecificMovie)
 
 var searchBtn = document.querySelector("button")
 var inputBox = document.getElementById("input")
@@ -111,9 +120,19 @@ function findMovie(searchInput) {
     })
     .then(function (data) {
       console.log(data)
-      console.log(data.Title, data.Plot, data.Genre, data.Poster)   
+      //console.log(data.Title, data.Plot, data.Genre, data.Poster)   
         //need to make this a loop
       var card = document.createElement("div")
+      card.setAttribute("class", "column is-full card is-horizontal")
+
+      var cardDiv = document.createElement("div")
+      cardDiv.setAttribute("class", "card-image")
+
+      var poster = document.createElement("img")
+
+      var stackedDiv = document.createElement("div")
+      stackedDiv.setAttribute("class", "card-stacked")
+
       var title = document.createElement("h3")
       var poster = document.createElement("img")
       var description = document.createElement("p")
@@ -125,11 +144,25 @@ function findMovie(searchInput) {
       description.textContent = data.Plot
       genres.textContent = data.Genre
       
-      console.log(title)
+      /* console.log(title)
         console.log(poster)
         console.log(description)
-        console.log(genres);
+        console.log(genres); */
 
-        card.append(poster, title, description, genres)
-        movieInfo.appendChild(card)
+        title.append(hr)
+        stackedDiv.append(title, director, genres, rating, description)
+        cardDiv.append(poster)
+        card.append(cardDiv, stackedDiv)
+        console.log(movieData);
+        movieData.append(card)
+        
     } ) }
+    
+    searchBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    var searchInput = inputBox.value.trim();
+     findMovie(searchInput);
+    fetchSpecificMovie(searchInput);
+   
+})
+// END OF KEEP THIS
