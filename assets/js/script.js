@@ -26,7 +26,7 @@ var movieData = document.getElementById("movie-info")
 
 
 
-function loadLocalStorageWatchlist() {
+/* function loadLocalStorageWatchlist() {
   var generatedWatchlist = JSON.parse(localStorage.getItem("watchlist"))
 for (let i = 0; i < generatedWatchlist.length; i++) {
 var newWatchlist = document.createElement("li")
@@ -35,7 +35,7 @@ userWatchlist.append(newWatchlist)
 }
 }
 
-loadLocalStorageWatchlist()
+loadLocalStorageWatchlist() */
 
 createWatchlistButton.addEventListener("click", addWatchlist)
 
