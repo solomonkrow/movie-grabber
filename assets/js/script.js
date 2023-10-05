@@ -26,8 +26,8 @@ var movieData = document.getElementById("movie-info")
 
 
 
-/* function loadLocalStorageWatchlist() {
-  var generatedWatchlist = JSON.parse(localStorage.getItem("watchlist"))
+function loadLocalStorageWatchlist() {
+  var generatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || []
 for (let i = 0; i < generatedWatchlist.length; i++) {
 var newWatchlist = document.createElement("li")
 newWatchlist.textContent = generatedWatchlist[i]
@@ -35,7 +35,7 @@ userWatchlist.append(newWatchlist)
 }
 }
 
-loadLocalStorageWatchlist() */
+loadLocalStorageWatchlist()
 
 createWatchlistButton.addEventListener("click", addWatchlist)
 
@@ -136,7 +136,7 @@ function fetchSpecificMovie() {
 // KEEP THIS STARTING NOW
 
 function findMovie(searchInput) {
-  var omdbUrl = "http://www.omdbapi.com/?apikey=" + omdbKey + "&t=" + searchInput;
+  var omdbUrl = "https://www.omdbapi.com/?apikey=" + omdbKey + "&t=" + searchInput;
   fetch(omdbUrl)
   .then(function (response) {
     return response.json();
