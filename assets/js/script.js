@@ -1,26 +1,62 @@
+// OMDB:
+// Data request - http://www.omdbapi.com/?apikey=[yourkey]&
+// Poster request - http://img.omdbapi.com/?apikey=[yourkey]&
 
 var omdbKey = "dcd25d25"
+
+// The Movie Database:
+// Example data request - https://api.themoviedb.org/3/search/movie?query={search}&api_key={key}
 var tmdKey = "91ce5d26720f6e04f0cc120d15c7cd71"
 
 
+
 var button = document.getElementById("search-button")
-var search = document.getElementById("search-input")
+var search = document.getElementById("input")
 var displayPoster = document.getElementById("display-poster")
 var displayTitle = document.getElementById("display-title")
 var displayDescription = document.getElementById("display-description")
+
+var createWatchlistInput = document.getElementById("create-watchlist-input")
+var createWatchlistButton = document.getElementById("create-watchlist-button")
+var userWatchlist = document.getElementById("user-watchlists")
 
 var searchBtn = document.querySelector("button")
 var inputBox = document.getElementById("input")
 var movieData = document.getElementById("movie-info")
 
-// var createWatchlistInput = document.getElementById("create-watchlist-input")
-// var createWatchlistButton = document.getElementById("create-watchlist-button")
 
-// createWatchlistButton.addEventListener("click", addWatchlist)
 
-// function addWatchlist() {
-// localStorage.setItem("watchlist", JSON.stringify(createWatchlistInput))
+function loadLocalStorageWatchlist() {
+  var generatedWatchlist = JSON.parse(localStorage.getItem("watchlist"))
+for (let i = 0; i < generatedWatchlist.length; i++) {
+var newWatchlist = document.createElement("li")
+newWatchlist.textContent = generatedWatchlist[i]
+userWatchlist.append(newWatchlist)
+}
+}
+
+loadLocalStorageWatchlist()
+
+createWatchlistButton.addEventListener("click", addWatchlist)
+
+function addWatchlist() {
+var watchlist = []
+var localStorageWatchlist = JSON.parse(localStorage.getItem("watchlist"))
+if(localStorageWatchlist?.length > 0) {
+  localStorageWatchlist.push(createWatchlistInput.value)
+  localStorage.setItem("watchlist", JSON.stringify(localStorageWatchlist))
+}
+else {
+  watchlist.push(createWatchlistInput.value)
+  localStorage.setItem("watchlist", JSON.stringify(watchlist))
+}
+var generatedWatchlist = JSON.parse(localStorage.getItem("watchlist"))
+// for (let i = 0; i < generatedWatchlist.length; i++) {
+var newWatchlist = document.createElement("li")
+newWatchlist.textContent = createWatchlistInput.value
+userWatchlist.append(newWatchlist)
 // }
+}
 
 function generateMovieCards(moviebData) {
      for (let i = 0; i < 10; i++){  
@@ -96,6 +132,7 @@ function fetchSpecificMovie() {
 
 //var button = document.addEventListener("click", fetchSpecificMovie)
 
+
 // KEEP THIS STARTING NOW
 
 function findMovie(searchInput) {
@@ -108,6 +145,7 @@ function findMovie(searchInput) {
     console.log(data)
     //console.log(data.Title, data.Plot, data.Genre, data.Poster)   
       //need to make this a loop
+
       
       //for (var x = 0; x < 10; x++) {
         
