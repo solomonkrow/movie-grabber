@@ -82,6 +82,8 @@ function findMovie(searchInput) {
       console.log(data)
       //console.log(data.Title, data.Plot, data.Genre, data.Poster)   
         //need to make this a loop
+        //movieData.innerHTML = ""
+
       var card = document.createElement("div")
       card.setAttribute("class", "column is-full card is-horizontal")
 
