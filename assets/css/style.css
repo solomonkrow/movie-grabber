@@ -38,8 +38,17 @@ aside {
 
 }
 
+aside {
+  margin-bottom: 200px;
+}
+img {
+  object-fit: contain;
+  width: 300px;
+}
 /* start of card formatting */
   .card {
+
+    
     &.is-horizontal {
       display: flex;
       
